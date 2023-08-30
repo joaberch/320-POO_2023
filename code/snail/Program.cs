@@ -21,31 +21,40 @@ namespace snail
         {
             //Caractéristique de l'escargot (vie, vitesse, position)
             const string strESCARGOT = "_@_ö";
-            int intvieescargot = 50;
-            const int intVITESSE = 30;
-            int hauteur = 5;
+            int intvieescargot = 5;
+            const int intVITESSE = 150;
+            int hauteur = 0;
             bool reset = false;
+            int intnbrboucle;
             Console.ForegroundColor = ConsoleColor.Red;
+            Console.CursorVisible = false;
 
             //Afficher l'escargot
             do
             {
-                for (int i = 0; i <= intvieescargot; i++)
+                //permet au programme de recommencer
+                intnbrboucle = 0;
+                Console.Clear();
+
+                Console.Write(strESCARGOT);
+
+                while (intnbrboucle != intvieescargot)
                 {
-                    Console.Clear();
-                    Console.SetCursorPosition(i, hauteur);
-                    Console.Write(strESCARGOT);
+                    //Console.SetCursorPosition(intnbrboucle, hauteur);
+                    Console.MoveBufferArea(intnbrboucle, hauteur, 4, 1, intnbrboucle + 1, hauteur);
                     Thread.Sleep(intVITESSE);
+                    ++intnbrboucle;
                 }
 
                 //Si escargot meurt
                 Console.Clear();
                 Console.SetCursorPosition(intvieescargot, hauteur);
                 Console.Write("____");
-                Console.Read();
+                Console.ReadKey();
                 reset = true;
+                intvieescargot++;
             }
-            while (!reset);
+            while (reset);
         }
     }
 }
