@@ -21,8 +21,8 @@ namespace snail
         {
             //Caractéristique de l'escargot (vie, vitesse, position)
             const string strESCARGOT = "_@_ö";
-            int intvieescargot = 5;
-            const int intVITESSE = 300;
+            int intvieescargot = 50;
+            const int intVITESSE = 30;
             int hauteur = 5;
             bool reset = false;
             Console.ForegroundColor = ConsoleColor.Red;
