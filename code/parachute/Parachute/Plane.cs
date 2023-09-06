@@ -8,7 +8,11 @@ namespace Parachute
 {
     internal class Plane
     {
-        private string[] view =
+        const int planeLength = 29;     //Longueur de l'avion
+        const int planeHeight = 6;      //Hauteur de l'avion
+        int x = 0;                      //Valeur x de l'avion
+        int y = 0;                      //Valeur y de l'avion
+        public string[] view =
         {
             @" _                         ",
             @"| \                        ",
@@ -17,5 +21,18 @@ namespace Parachute
             @"  \_______ --------- __>-} ",
             @"        \_____|_____/   |  "
         };
+
+        public void update()
+        {
+            Console.MoveBufferArea(x, y, planeLength, planeHeight, ++x, y);
+        }
+
+        public void draw()
+        {
+            for (int i = 0; i != planeHeight; ++i)
+            {
+                Console.WriteLine(view[i]);
+            }
+        }
     }
 }
