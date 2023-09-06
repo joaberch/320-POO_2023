@@ -24,15 +24,18 @@ namespace Parachute
 
         public void update()
         {
-            Console.MoveBufferArea(x, y, planeLength, planeHeight, ++x, y);
+            ++x;
         }
 
         public void draw()
         {
             for (int i = 0; i != planeHeight; ++i)
             {
+                Console.SetCursorPosition(x, y);
+                ++y;
                 Console.WriteLine(view[i]);
             }
+            y = 0;
         }
     }
 }

@@ -10,6 +10,11 @@ while (true)
     // Modifier le modèle (ce qui *est*)
     Plane.update();
     
+
+     // Modifier ce que l'on *voit*
+     Console.Clear();
+    Plane.draw();
+
     // Temporiser
     Thread.Sleep(100);
 }
