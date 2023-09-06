@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Parachute;
+
+//Console.SetWindowSize(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
+
+Console.Read();
