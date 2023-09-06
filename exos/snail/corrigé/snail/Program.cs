@@ -1,6 +1,4 @@
-﻿
-
-Console.Clear();
+﻿Console.Clear();
 Console.CursorVisible = false;
 
 Snail snail = new Snail(ConsoleColor.Blue);
@@ -73,7 +71,7 @@ public class Snail
     {
         Console.ForegroundColor = _color;
         Console.SetCursorPosition(_x, _y);
-        if (this.isAlive())
+        if (this.isAlive()) //"this" Permet de se référer à l'objet atuel et pas à tout les escargots
         {
             Console.Write(SNAIL);
         }

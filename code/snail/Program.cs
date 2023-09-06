@@ -52,7 +52,7 @@ namespace snail
                 Console.Write("____");
                 Console.ReadKey();
                 reset = true;
-                intvieescargot++;
+                intvieescargot+=5;
             }
             while (reset);
         }
