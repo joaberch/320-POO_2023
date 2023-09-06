@@ -23,6 +23,10 @@ namespace Parachute
             @"        \_____|_____/   |  "
         };
 
+        public void addParachutist(string Name)
+        {
+            club.Add(new Para("Bob"));
+        }
         public Plane()      //Constructeur
         {
             //Para Bob = new Para();

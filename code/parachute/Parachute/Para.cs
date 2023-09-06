@@ -8,6 +8,9 @@ namespace Parachute
 {
     internal class Para
     {
+        public Para(string name)    //Constructeur
+        {
 
+        }
     }
 }
