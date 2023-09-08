@@ -31,16 +31,19 @@ namespace Parachute
         }
         public Plane()      //Constructeur
         {
-            //Para Bob = new Para();
-            //Para Alice = new Para();
-            //Para Max = new Para();
-            //Para[] para = new Para[1];
-            //List<Para> club = new List<Para>();
+            
         }
 
         public void update()
         {
-            ++x;
+            if (x == Console.WindowWidth -1)
+            {
+                x = 0;
+            }
+            else
+            {
+                ++x;
+            }
         }
 
         public void draw()
