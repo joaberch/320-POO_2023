@@ -8,7 +8,7 @@ namespace Parachute
 {
     static class Config
     {
-        public const int SCREEN_HEIGHT = 40;
-        public const int SCREEN_WIDTH = 150;
+        public const int SCREEN_HEIGHT = 40;    //Défini la hauteur de l'écran
+        public const int SCREEN_WIDTH = 150;    //Défini la longueur de l'écran
     }
 }

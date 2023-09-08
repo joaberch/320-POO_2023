@@ -20,7 +20,8 @@ avion.addParachutist(NBRPARA);
 //créer un compteur pour le nombre de parachutiste ayant sauter
 int compteursauter = 0;
 
-List<Para> outside = new List<Para>();  //Création d'une collection pour les parachutistes en dehors de l'avion
+//Création d'une collection pour les parachutistes en dehors de l'avion
+List<Para> outside = new List<Para>();  
 
 while (true) //Game engine
 {
@@ -32,10 +33,9 @@ while (true) //Game engine
     Console.Clear();
     avion.draw();
 
-    foreach(Para para in outside)
+    foreach(Para para in outside)   //Modifie les parachutiste en dehors de l'avion
     {
-        
-        para.Parashow();
+        para.draw();
         para.Update();
     }
 
@@ -45,19 +45,19 @@ while (true) //Game engine
         keyPressed = Console.ReadKey(false);
         switch (keyPressed.Key)
         {
-            case ConsoleKey.Spacebar:
-                if (compteursauter != NBRPARA)              //Si plus de parachutiste dans l'avion
+            case ConsoleKey.Spacebar:                       //Si l'utilisateur a appuyé sur espace
+                if (compteursauter != NBRPARA)                  //Si plus de parachutiste dans l'avion
                 {
-                    outside.Add(avion.insideplane.First()); //Ajouter un parachutist en dehors de l'avion
-                    avion.parajump();
-                    outside[compteursauter].x = avion.x;
-                    ++compteursauter;
+                    outside.Add(avion.insideplane.First());         //Ajouter un parachutist en dehors de l'avion
+                    avion.parajump();                               //Enlever un parachutiste dans l'avion
+                    outside[compteursauter].x = avion.x;            //Définir la valeur x du parachutiste
+                    ++compteursauter;                               //Augmenter le nombre de parachutiste ayant sauté
                 }
 
                 break;
 
-            case ConsoleKey.Escape:
-                Environment.Exit(0);
+            case ConsoleKey.Escape:                         //Si l'utilisateur a appuyé sur exit
+                Environment.Exit(0);                            //Quitter le programme
                 break;
         }
     }

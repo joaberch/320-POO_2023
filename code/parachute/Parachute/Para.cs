@@ -8,7 +8,7 @@ namespace Parachute
 {
     internal class Para
     {
-        public string[] withoutParachute =
+        public string[] withoutParachute =                  //Sprite du parachutiste sans parachute
 {
          @"     ",
          @"     ",
@@ -17,7 +17,7 @@ namespace Parachute
          @" /░\ ",
          @" / \ ",
      };
-        private string[] withParachute =
+        private string[] withParachute =                    //Sprite du parachutiste avec un parachute
      {
          @" ___ ",
          @"/|||\",
@@ -27,18 +27,22 @@ namespace Parachute
          @" / \ ",
      };
 
-        public int x;
-        public int compteur = 0;
-        public bool middlescreen = false;
-        public void Parashow()
+        public int x;                                       //Valeur x du parachutiste (left)
+        public int y = 0;                                   //valeur y du parachutiste (up)
+        public bool havePara = false;                       //Vérifie si le parachutiste doit mettre son parachute
+
+        /// <summary>
+        /// Dessine le parachute
+        /// </summary>
+        public void draw()
         {
             for (int z = 0; z != 6; ++z)
             {
-                Console.SetCursorPosition(this.x, z + compteur);
+                Console.SetCursorPosition(this.x, z + y);
 
-                if (compteur != 26)
+                if (y != 26)
                 {
-                    string[] view = middlescreen ? withParachute : withoutParachute;
+                    string[] view = havePara ? withParachute : withoutParachute;
                     Console.WriteLine(view[z]);
                 }
                 else
@@ -48,18 +52,26 @@ namespace Parachute
             }
         }
 
+        /// <summary>
+        /// Modifie la valeur du parachutiste
+        /// </summary>
         public void Update()
         {
-            if (this.compteur <= 25) //arrêter de descendre
+            if (this.y <= 25) //arrêter de descendre
             {
-                ++compteur;
+                ++y;
             }
-            if (this.compteur >= 15)
+            if (this.y >= 15)
             {
-                middlescreen = true;
+                havePara = true;
             }
         }
-        public Para(string name)    //Constructeur
+
+        /// <summary>
+        /// Constructeur
+        /// </summary>
+        /// <param name="name"></param>
+        public Para(string name)
         {
 
         }
