@@ -8,11 +8,12 @@ namespace Parachute
 {
     internal class Plane
     {
-        const int planeLength = 29;             //Longueur de l'avion
-        const int planeHeight = 6;              //Hauteur de l'avion
-        int x = 0;                              //Valeur x de l'avion
-        int y = 0;                              //Valeur y de l'avion
-        List<Para> club = new List<Para>();     //Créer une collection de parachutier
+        public const int planeLength = 29;                                     //Longueur de l'avion
+        public const int planeHeight = 6;                                      //Hauteur de l'avion
+        public int x = 0;                                               //Valeur x de l'avion
+        public int y = 0;                                               //Valeur y de l'avion
+        public List<Para> insideplane = new List<Para>();               //Créer une collection de parachutiste dans l'avion
+        
         public string[] view =
         {
             @" _                         ",
@@ -23,9 +24,10 @@ namespace Parachute
             @"        \_____|_____/   |  "
         };
 
-        public void addParachutist(string Name)
+        public void addParachutist(int nbr)
         {
-            club.Add(new Para("Bob"));
+            for (int p = 0; p < nbr; p++)
+            insideplane.Add(new Para("Bob"+p.ToString()));
         }
         public Plane()      //Constructeur
         {
@@ -48,8 +50,14 @@ namespace Parachute
                 Console.SetCursorPosition(x, y);
                 ++y;
                 Console.WriteLine(view[i]);
+                
             }
             y = 0;
+        }
+
+        public void parajump()
+        {
+            insideplane.RemoveAt(0);    //retirer un parachutist de l'avion
         }
     }
 }
