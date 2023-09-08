@@ -59,7 +59,15 @@ namespace Parachute
         {
             if (this.y <= 25) //arrêter de descendre
             {
-                ++y;
+                if(havePara)
+                {
+                    ++y;        //S'il a un parachute il descend de 1 par 1
+                }
+                else
+                {
+                    y += 3;     //S'il n'a pas de parachute il descend de 3 par 3
+                }
+                
             }
             if (this.y >= 15)
             {
