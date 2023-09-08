@@ -17,7 +17,7 @@ namespace Parachute
          @" /░\ ",
          @" / \ ",
      };
-        private string[] withoutParachute =
+        private string[] withParachute =
      {
          @" ___ ",
          @"/|||\",
