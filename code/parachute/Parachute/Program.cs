@@ -1,7 +1,6 @@
 ﻿using Parachute;
 
 Plane avion = new Plane();
-//Para Alice = new Para("Alice");
 
 //Préparer la variable pour récupérer la saisie
 ConsoleKeyInfo keyPressed;
@@ -12,8 +11,14 @@ Console.SetWindowSize(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
 //dessiner l'avion une première fois
 avion.draw();
 
+//Choisir le nombre de parachutiste
+const int NBRPARA = 3;
+
 //Faire embarquer les passagers
-avion.addParachutist(3);
+avion.addParachutist(NBRPARA);
+
+//créer un compteur pour le nombre de parachutiste ayant sauter
+int compteursauter = 0;
 
 List<Para> outside = new List<Para>();  //Création d'une collection pour les parachutistes en dehors de l'avion
 
@@ -41,9 +46,13 @@ while (true) //Game engine
         switch (keyPressed.Key)
         {
             case ConsoleKey.Spacebar:
-                outside.Add(avion.insideplane.First()); //Ajouter un parachutist en dehors de l'avion
-                avion.parajump();
-                outside[0].x = avion.x;
+                if (compteursauter != NBRPARA)              //Si plus de parachutiste dans l'avion
+                {
+                    outside.Add(avion.insideplane.First()); //Ajouter un parachutist en dehors de l'avion
+                    avion.parajump();
+                    outside[compteursauter].x = avion.x;
+                    ++compteursauter;
+                }
 
                 break;
 

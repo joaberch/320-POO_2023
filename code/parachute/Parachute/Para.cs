@@ -29,23 +29,35 @@ namespace Parachute
 
         public int x;
         public int compteur = 0;
+        public bool middlescreen = false;
         public void Parashow()
         {
             for (int z = 0; z != 6; ++z)
             {
                 Console.SetCursorPosition(this.x, z + compteur);
 
-                Console.WriteLine(withoutParachute[z]);
+                if (compteur != 26)
+                {
+                    string[] view = middlescreen ? withParachute : withoutParachute;
+                    Console.WriteLine(view[z]);
+                }
+                else
+                {
+                    Console.WriteLine(withoutParachute[z]);
+                }
             }
         }
 
         public void Update()
         {
-            if (this.compteur != 25) //arrêter de descendre
+            if (this.compteur <= 25) //arrêter de descendre
             {
                 ++compteur;
             }
-
+            if (this.compteur >= 15)
+            {
+                middlescreen = true;
+            }
         }
         public Para(string name)    //Constructeur
         {
